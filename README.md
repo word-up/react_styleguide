@@ -40,6 +40,19 @@ A coding guide line for React + Redux project @WORD UP
 
 #### Use selectors to fetch specific data from Store.
   * `user-info-selector.js` may provides `#get_full_name`, `#get_last_order` methods which talk to Store.
+  * Can also provides some reusable mutation functions.
+    * [An example of using reusable state-mutation functions](https://tech.affirm.com/redux-patterns-and-anti-patterns-7d80ef3d53bc):
+      ```
+      // utils.js
+      const applyFn = (state, fn) => fn(state)
+      export const pipe = (fns, state) => state.withMutations(s => fns.reduce(applyFn, s))
+      // reducer.js
+      return pipe([
+        mutate.closeModal,
+        mutate.stopLoading,
+        mutate.updateLoan(action.loan),
+      ], state)
+      ```
 
 #### All data in Store should be an immutable object created by `immutable.js` library
 
@@ -50,6 +63,12 @@ A coding guide line for React + Redux project @WORD UP
   * It's hard and error-prone to get/update data in a nested object. In addition, update data with a deep level will make several parent nodes being updated which may results in unnecessary render.
   * Use [normalizr](https://github.com/paularmstrong/normalizr) if needed.
   * [Normalizing State Shape](https://redux.js.org/recipes/structuring-reducers/normalizing-state-shape)
+
+#### Combine `set` actions
+  * Instead of using `state.set('key1', value1).set('key2', 'value2')`, use `withMutations` to wrap multiple actions into one update. Since Immutable.js will perform re-arranging in all the processes and retain all intermediate states.
+
+#### Refrain from using `.toJS()`
+  * It's a resource demanding action and also we lose the performance benefit. In addition, every `toJS()` call results in a new object which will always trigger unnecessary render.
 
 ## General
 #### Prefer `async/await` than `Promise.then().error`
@@ -64,3 +83,10 @@ A coding guide line for React + Redux project @WORD UP
   * like `document.addEventlistener`.
     * Since we're in a SPA, remember to remove the listener at a proper timing like `componentDidUnmount`.
     * Take the parent/child tree into account. Don't add the same listener at both parents and children.
+
+## Under consideration (welcome ideas as well as debates)
+  * Separate `sync` and `async` Redux actions into different files.
+
+## References
+  * https://redux.js.org/
+  * https://tech.affirm.com/redux-patterns-and-anti-patterns-7d80ef3d53bc
