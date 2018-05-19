@@ -1,5 +1,5 @@
 # React Project Coding Guideline
-A opinioned coding guideline for React + Redux project @WORD UP
+An opinioned coding guideline for React + Redux project @WORD UP
 
 ## Naming
 #### File name & Folder name
