@@ -20,13 +20,29 @@ A coding guide line for React + Redux project @WORD UP
       * `reducers/`
         * `personal-info.js`
         * `subscription-histroy.js`
-      * `personal-info-selector.js`
+      * `selectors/`
+        * `personal-info-selector.js`
+        * `subscription-histroy-selector.js`
       * `actions/`
         * `generic-actions.js`
         * `personal-info.js`
         * `subscription-histroy.js`
       * `constants/`
         * `index.js`
+
+## React
+#### Add `propTypes` to every components
+  * It helps others to use the component easily and also help to catch some errors quickly.
+  * In alphabetic order
+
+#### Use multiple lines when we need to pass more than one props.
+  * Organize props in alphabetic order.
+    ```javascript
+    <Component
+      aProp: 'a data'
+      bProp: 'b data'
+    />
+    ```
 
 ## Redux
 #### Try to minimize the size of a reducer
@@ -46,6 +62,7 @@ A coding guide line for React + Redux project @WORD UP
       // utils.js
       const applyFn = (state, fn) => fn(state)
       export const pipe = (fns, state) => state.withMutations(s => fns.reduce(applyFn, s))
+
       // reducer.js
       return pipe([
         mutate.closeModal,
@@ -66,11 +83,16 @@ A coding guide line for React + Redux project @WORD UP
 
 #### Combine `set` actions
   * Instead of using `state.set('key1', value1).set('key2', 'value2')`, use `withMutations` to wrap multiple actions into one update. Since Immutable.js will perform re-arranging in all the processes and retain all intermediate states.
+  * eg: `state.withMutations(s => s.set('key1', value1).set('key2', 'value2'))`
 
 #### Refrain from using `.toJS()`
   * It's a resource demanding action and also we lose the performance benefit. In addition, every `toJS()` call results in a new object which will always trigger unnecessary render.
 
 ## General
+#### Prefer single quote or backtick for String.
+  * `'a string'`
+  * `` `a string with ${variable}` ``
+
 #### Prefer `async/await` than `Promise.then().error`
   * The line of codes will be significantly lesser
 
