@@ -9,6 +9,8 @@ A coding guide line for React + Redux project @WORD UP
 #### Id & Class name
   * Lowercase. Separated by single dash
     * `nav-bar-item`
+  * However, `__` & `--` is still fine if using [BEM](http://getbem.com/) style.
+    * eg: `.block__elem--mod`
 
 ## File Structure
   * Use `module` to contains the files related to React & Redux
