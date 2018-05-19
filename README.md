@@ -1,5 +1,5 @@
 # React Project Coding Guideline
-A coding guide line for React + Redux project @WORD UP
+A opinioned coding guideline for React + Redux project @WORD UP
 
 ## Naming
 #### File name & Folder name
@@ -13,9 +13,9 @@ A coding guide line for React + Redux project @WORD UP
     * eg: `.block__elem--mod`
 
 ## File Structure
-  * Use `module` to contains the files related to React & Redux
-  * Creating folders is not required if it contains only one file.
-    * `module/user-profile/`
+  * Use `use-cases` to contains the files related to React & Redux
+  * `use-cases/`
+    * `user-profile/`
       * `index.js` => might be a container
       * `components/`
         * `user-profile-component.js`
@@ -31,6 +31,8 @@ A coding guide line for React + Redux project @WORD UP
         * `subscription-histroy.js`
       * `constants/`
         * `index.js`
+    * `product-list/`
+      * `...`
 
 ## React
 #### Add `propTypes` to every components
@@ -60,7 +62,7 @@ A coding guide line for React + Redux project @WORD UP
   * `user-info-selector.js` may provides `#get_full_name`, `#get_last_order` methods which talk to Store.
   * Can also provides some reusable mutation functions.
     * [An example of using reusable state-mutation functions](https://tech.affirm.com/redux-patterns-and-anti-patterns-7d80ef3d53bc):
-      ```
+      ```javascript
       // utils.js
       const applyFn = (state, fn) => fn(state)
       export const pipe = (fns, state) => state.withMutations(s => fns.reduce(applyFn, s))
