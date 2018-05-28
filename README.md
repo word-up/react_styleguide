@@ -10,7 +10,7 @@ An opinioned coding guideline for React + Redux project @WORD UP
   * Lowercase. Separated by single dash
     * `nav-bar-item`
   * However, `__` & `--` is still fine if using [BEM](http://getbem.com/) style.
-    * eg: `.block__elem--mod`  
+    * eg: `.block__elem--mod`
 
 ## File Structure
   * Use `use-cases` to contains the files related to React & Redux
