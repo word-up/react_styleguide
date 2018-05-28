@@ -10,7 +10,7 @@ An opinioned coding guideline for React + Redux project @WORD UP
   * Lowercase. Separated by single dash
     * `nav-bar-item`
   * However, `__` & `--` is still fine if using [BEM](http://getbem.com/) style.
-    * eg: `.block__elem--mod`
+    * eg: `.block__elem--mod`  
 
 ## File Structure
   * Use `use-cases` to contains the files related to React & Redux
@@ -33,6 +33,8 @@ An opinioned coding guideline for React + Redux project @WORD UP
         * `index.js`
     * `product-list/`
       * `...`
+## Spacing and Code Indentation
+  * Use 2 spaces and indent using spaces       
 
 ## React
 #### Add `propTypes` to every components
