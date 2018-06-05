@@ -33,6 +33,8 @@ An opinioned coding guideline for React + Redux project @WORD UP
         * `index.js`
     * `product-list/`
       * `...`
+## Spacing and Code Indentation
+  * Use 2 spaces and indent using spaces       
 
 ## React
 #### Add `propTypes` to every components
