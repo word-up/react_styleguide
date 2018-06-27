@@ -34,8 +34,12 @@ An opinioned coding guideline for React + Redux project @WORD UP
     * `product-list/`
       * `...`
 ## Spacing and Code Indentation
-  * Use 2 spaces and indent using spaces       
+  * Use 2 spaces and indent using spaces
 
+## Code Comments and Inline Documentation
+  * Use backslash // comments when necessary
+  * For todos use the format //TODO: with the person responsible and reason `//TODO: (From Mark) hookup Ajax to rest server`
+  
 ## React
 #### Add `propTypes` to every components
   * It helps others to use the component easily and also help to catch some errors quickly.
