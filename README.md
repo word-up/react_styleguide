@@ -17,9 +17,15 @@ An opinioned coding guideline for React + Redux project @WORD UP
   * Reference:
     * [Tips For a Better Redux Architecture: Lessons for Enterprise Scale](https://hashnode.com/post/tips-for-a-better-redux-architecture-lessons-for-enterprise-scale-civrlqhuy0keqc6539boivk2f)
     * [Architecture the Lost Years by Robert Martin](https://www.youtube.com/watch?v=WpkDN78P884)
+  * `pages/` -> direct handler for each route
+    * `account/`
+      * `index.js`
   * `use-cases/`
     * `user-profile/`
-      * `index.js` => might be a container
+      * `containers/`
+        * `personal-info-container.js`
+        * `__test__/`
+          * `personal-info-container.test.js`
       * `components/`
         * `user-profile-component.js`
         * `__test__/`
