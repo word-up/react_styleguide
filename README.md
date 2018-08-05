@@ -14,21 +14,42 @@ An opinioned coding guideline for React + Redux project @WORD UP
 
 ## File Structure
   * Use `use-cases` to contains the files related to React & Redux
+  * Reference:
+    * [Tips For a Better Redux Architecture: Lessons for Enterprise Scale](https://hashnode.com/post/tips-for-a-better-redux-architecture-lessons-for-enterprise-scale-civrlqhuy0keqc6539boivk2f)
+    * [Architecture the Lost Years by Robert Martin](https://www.youtube.com/watch?v=WpkDN78P884)
+  * `pages/` -> direct handler for each route
+    * `account/`
+      * `index.js`
   * `use-cases/`
     * `user-profile/`
-      * `index.js` => might be a container
+      * `containers/`
+        * `personal-info-container.js`
+        * `__test__/`
+          * `personal-info-container.test.js`
       * `components/`
         * `user-profile-component.js`
+        * `__test__/`
+          * `user-profile-component.test.js`
       * `reducers/`
         * `personal-info.js`
         * `subscription-histroy.js`
+        * `__test__/`
+          * `personal-info.test.js`
+          * `subscription-histroy.test.js`
       * `selectors/`
         * `personal-info-selector.js`
         * `subscription-histroy-selector.js`
+        * `__test__/`
+          * `personal-info-selector.test.js`
+          * `subscription-histroy-selector.test.js`
       * `actions/`
         * `generic-actions.js`
         * `personal-info.js`
         * `subscription-histroy.js`
+        * `__test__/`
+          * `generic-actions.test.js`
+          * `personal-info.test.js`
+          * `subscription-histroy.test.js`
       * `constants/`
         * `index.js`
     * `product-list/`
