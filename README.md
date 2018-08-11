@@ -64,15 +64,18 @@ An opinioned coding guideline for React + Redux project @WORD UP
 ## React
 #### Add `propTypes` to every components
   * It helps others to use the component easily and also help to catch some errors quickly.
-  * In alphabetic order
+  * Order by category
 
 #### Use multiple lines when we need to pass more than one props.
-  * Organize props in alphabetic order.
+  * Organize props by category.
     ```javascript
-    <Component
-      aProp: 'a data'
-      bProp: 'b data'
-    />
+      <Input
+        ref={(ref) => this.BTN = ref}
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        height={height}
+        width={width}
+      />
     ```
 
 ## Redux
