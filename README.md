@@ -55,11 +55,12 @@ An opinioned coding guideline for React + Redux project @WORD UP
     * `product-list/`
       * `...`
 ## Spacing and Code Indentation
-  * Use 2 spaces and indent using spaces
+  * Use 2 spaces for indentation instead of `tab`
 
 ## Code Comments and Inline Documentation
-  * Use backslash // comments when necessary
-  * For todos use the format //TODO: with the person responsible and reason `//TODO: (From Mark) hookup Ajax to rest server`
+  * Use backslash `// comments when necessary`
+  * For todos use the format `//TODO: (with the person responsible and reason)`
+    * for example: `//TODO: (From Mark) hookup Ajax to rest server`
   
 ## React
 #### Add `propTypes` to every components
@@ -73,6 +74,26 @@ An opinioned coding guideline for React + Redux project @WORD UP
       aProp: 'a data'
       bProp: 'b data'
     />
+    ```
+
+#### Group `import` into sections
+  * In order to understand where's the code comes from, group all of `import` statements logically
+    ```javascript
+    // group 1: import javascript native or 3rd libraries
+    import React;
+    import moment;
+
+    // group 2: import components
+    import Loader from 'Components/generic-tools/loader';
+    import ProductList from 'Components/product-list';
+
+    // group 3: import modules like utilities, actions, reducers ...
+    import { fetchCourseById } from 'Utils/APIs/admin';
+    import { toRoute } from 'Utils/route-handler';
+
+    // group 4: import css, styles, class
+    import classnames from 'classnames/bind';
+    import styles from './styles.scss';
     ```
 
 ## Redux
