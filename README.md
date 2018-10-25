@@ -139,6 +139,9 @@ An opinioned coding guideline for React + Redux project @WORD UP
     * Since we're in a SPA, remember to remove the listener at a proper timing like `componentDidUnmount`.
     * Take the parent/child tree into account. Don't add the same listener at both parents and children.
 
+## eslint
+apply `eslint-config-airbnb` with plugin `react` and `prettier`
+
 ## References
   * https://redux.js.org/
   * https://tech.affirm.com/redux-patterns-and-anti-patterns-7d80ef3d53bc
