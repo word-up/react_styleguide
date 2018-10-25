@@ -76,6 +76,21 @@ An opinioned coding guideline for React + Redux project @WORD UP
     import classnames from 'classnames/bind';
     import styles from './styles.scss';
     ```
+#### props
+  * should prevent using too many props in single component
+  * use proper naming ([reference](https://dlinau.wordpress.com/2016/02/22/how-to-name-props-for-react-components/))
+    ```
+    Array – use plural nouns. e.g. items
+    Number – use prefix num or postfix count, index etc that can imply a number. e.g. numItems, itemCount, itemIndex
+    Bool – use prefix is, can, has
+      is: for visual/behavior variations. e.g. isVisible, isEnable, isActive
+      can: fore behavior variations or conditional visual variations. e.g. canToggle, canExpand, canHaveCancelButton
+      has: for toggling UI elements. e.g. hasCancelButton, hasHeader
+    Object – use noun. e.g. item
+    Node – use prefix node. containerNode
+    Element – use prefix element. hoverElement
+    ```
+
 
 ## Redux
 #### Try to minimize the size of a reducer
