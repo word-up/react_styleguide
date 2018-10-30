@@ -3,8 +3,10 @@ An opinioned coding guideline for React + Redux project @WORD UP
 
 ## Naming
 #### File name & Folder name
-  * Camel-Case, equal to component name
-    * `module/components/UserFeedback.js`
+  * PascalCase for component(equal to component name)
+    * `components/UserFeedback.js`
+  * camelCase for helper function
+    * `utils/dataFormater.js`
 
 #### Id & Class name
   * Lowercase. Separated by single dash
