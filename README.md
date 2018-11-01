@@ -3,8 +3,10 @@ An opinioned coding guideline for React + Redux project @WORD UP
 
 ## Naming
 #### File name & Folder name
-  * Lowercase. Separated by single dash
-    * `module/components/user-feedback.js`
+  * PascalCase for component(equal to component name)
+    * `components/UserFeedback.js`
+  * camelCase for helper function
+    * `utils/dataFormater.js`
 
 #### Id & Class name
   * Lowercase. Separated by single dash
@@ -13,58 +15,41 @@ An opinioned coding guideline for React + Redux project @WORD UP
     * eg: `.block__elem--mod`
 
 ## File Structure
-  * Use `use-cases` to contains the files related to React & Redux
-  * Reference:
-    * [Tips For a Better Redux Architecture: Lessons for Enterprise Scale](https://hashnode.com/post/tips-for-a-better-redux-architecture-lessons-for-enterprise-scale-civrlqhuy0keqc6539boivk2f)
-    * [Architecture the Lost Years by Robert Martin](https://www.youtube.com/watch?v=WpkDN78P884)
-  * `pages/` -> direct handler for each route
-    * `account/`
-      * `index.js`
-  * `use-cases/`
-    * `user-profile/`
-      * `containers/`
-        * `personal-info-container.js`
-        * `__test__/`
-          * `personal-info-container.test.js`
-      * `components/`
-        * `user-profile-component.js`
-        * `__test__/`
-          * `user-profile-component.test.js`
-      * `reducers/`
-        * `personal-info.js`
-        * `subscription-histroy.js`
-        * `__test__/`
-          * `personal-info.test.js`
-          * `subscription-histroy.test.js`
-      * `selectors/`
-        * `personal-info-selector.js`
-        * `subscription-histroy-selector.js`
-        * `__test__/`
-          * `personal-info-selector.test.js`
-          * `subscription-histroy-selector.test.js`
-      * `actions/`
-        * `generic-actions.js`
-        * `personal-info.js`
-        * `subscription-histroy.js`
-        * `__test__/`
-          * `generic-actions.test.js`
-          * `personal-info.test.js`
-          * `subscription-histroy.test.js`
-      * `constants/`
-        * `index.js`
-    * `product-list/`
-      * `...`
+```
+  |- pages/           -> direct handler for each route
+    |- account/
+      |- __test__/
+      |- index.js
+      |- styles.scss
+  |- containers/      -> connect to store
+    |- PersonalInfo/
+      |- __test__/
+      |- index.js
+      |- styles.scss
+  |- components/  
+    |- PersonalInfo/
+      |- __test__/
+      |- index.js
+      |- styles.scss
+  |- reducers/
+    |- user/
+      |- __test__/
+      |- actions.js
+      |- constants.js
+      |- reducer.js
+      |- selector.js
+  |- styles/          -> common css like variable, mixin..
+  |- utils/           -> helper function
+```
 ## Spacing and Code Indentation
-  * Use 2 spaces and indent using spaces
+  * Use 2 spaces for indentation instead of `tab`
 
 ## Code Comments and Inline Documentation
-  * Use backslash // comments when necessary
-  * For todos use the format //TODO: with the person responsible and reason `//TODO: (From Mark) hookup Ajax to rest server`
+  * Use backslash `// comments when necessary`
+  * For todos use the format `//TODO: (with the person responsible and reason)`
+    * for example: `//TODO: (From Mark) hookup Ajax to rest server`
   
 ## React
-#### Add `propTypes` to every components
-  * It helps others to use the component easily and also help to catch some errors quickly.
-  * Order by category
 
 #### Use multiple lines when we need to pass more than one props.
   * Organize props by category.
@@ -77,6 +62,41 @@ An opinioned coding guideline for React + Redux project @WORD UP
         width={width}
       />
     ```
+
+#### Group `import` into sections
+  * In order to understand where's the code comes from, group all of `import` statements logically
+    ```javascript
+    // group 1: import javascript native or 3rd libraries
+    import React;
+    import moment;
+
+    // group 2: import components
+    import Loader from 'Components/generic-tools/loader';
+    import ProductList from 'Components/product-list';
+
+    // group 3: import modules like utilities, actions, reducers ...
+    import { fetchCourseById } from 'Utils/APIs/admin';
+    import { toRoute } from 'Utils/route-handler';
+
+    // group 4: import css, styles, class
+    import classnames from 'classnames/bind';
+    import styles from './styles.scss';
+    ```
+#### props
+  * should prevent using too many props in single component
+  * use proper naming ([reference](https://dlinau.wordpress.com/2016/02/22/how-to-name-props-for-react-components/))
+    ```
+    Array – use plural nouns. e.g. items
+    Number – use prefix num or postfix count, index etc that can imply a number. e.g. numItems, itemCount, itemIndex
+    Bool – use prefix is, can, has
+      is: for visual/behavior variations. e.g. isVisible, isEnable, isActive
+      can: fore behavior variations or conditional visual variations. e.g. canToggle, canExpand, canHaveCancelButton
+      has: for toggling UI elements. e.g. hasCancelButton, hasHeader
+    Object – use noun. e.g. item
+    Node – use prefix node. containerNode
+    Element – use prefix element. hoverElement
+    ```
+
 
 ## Redux
 #### Try to minimize the size of a reducer
@@ -140,8 +160,8 @@ An opinioned coding guideline for React + Redux project @WORD UP
     * Since we're in a SPA, remember to remove the listener at a proper timing like `componentDidUnmount`.
     * Take the parent/child tree into account. Don't add the same listener at both parents and children.
 
-## Under consideration (welcome ideas as well as debates)
-  * Separate `sync` and `async` Redux actions into different files.
+## eslint
+apply `eslint-config-airbnb` with plugin `react` and `prettier`
 
 ## References
   * https://redux.js.org/
