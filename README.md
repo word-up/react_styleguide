@@ -50,13 +50,17 @@ An opinioned coding guideline for React + Redux project @WORD UP
     * for example: `//TODO: (From Mark) hookup Ajax to rest server`
   
 ## React
+
 #### Use multiple lines when we need to pass more than one props.
-  * Organize props in alphabetic order.
+  * Organize props by category.
     ```javascript
-    <Component
-      aProp: 'a data'
-      bProp: 'b data'
-    />
+      <Input
+        ref={(ref) => this.BTN = ref}
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        height={height}
+        width={width}
+      />
     ```
 
 #### Group `import` into sections
