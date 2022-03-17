@@ -79,14 +79,17 @@ An opinioned coding guideline for React + Redux project @WORD UP
   // group 1: import javascript native or 3rd libraries
   import React;
   import moment;
+  import styled from 'styled-components';
 
   // group 2: import modules like utilities, actions, reducers ...
   import { fetchCourseById } from 'Utils/apis/admin';
   import { toRoute } from 'Utils/route-handler';
+  import { MODAL_TYPES } from 'lib/blog/modal';
 
   // group 3: import components
   import Loader from 'Components/generic-tools/loader';
   import ProductList from 'Components/product-list';
+  const Form = dynamic(() => import('components/seo-page/modal-comps/form'));
 
   // group 4: import css, styles, class
   import classnames from 'classnames/bind';
